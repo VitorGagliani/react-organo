@@ -4,7 +4,9 @@ import { ListaSuspensa } from "../ListaSuspernsa";
 import { Botao } from "../Botao";
 import "./style.css";
 
-export const Form = () => {
+export const Form = (props) => {
+
+
 
   const [nome, setNome] = useState('')
   const [cargo, setCargo] = useState('')
@@ -16,8 +18,12 @@ export const Form = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault()
-    console.log("Form foi submetido")
-    console.log(nome, cargo, imagem, time )
+    props.aoColaboradorCadastrado({
+      nome,
+      cargo,
+      imagem,
+      time
+    })
 
   }
 
