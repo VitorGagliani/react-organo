@@ -1,0 +1,28 @@
+.rodape{
+  background-color: #6278F7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 75px 0;
+  width: 100%;
+}
+
+.lista-rp{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  gap: 35px;
+  margin-left: 162px;
+
+}
+
+
+
+.text-rp{
+  margin: 0;
+  margin-right: 162px;
+  color: white;
+}
+
+

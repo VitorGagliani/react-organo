@@ -14,7 +14,7 @@ export const Form = (props) => {
   const [time, setTime] = useState('')
   
 
-  const times = ["Programação", "Front-End", "Data Science", "Devops", "UX e Design", "Mobile", "Inovação e Gestão"]
+
 
   const aoSalvar = (evento) => {
     evento.preventDefault()
@@ -24,6 +24,10 @@ export const Form = (props) => {
       imagem,
       time
     })
+    setNome('')
+    setCargo('')
+    setImagem('')
+    setTime('')
 
   }
 
@@ -59,7 +63,7 @@ export const Form = (props) => {
       <ListaSuspensa
         required={true}
         label="Time"
-        itens={times}
+        itens={props.times}
         valor={time}
         aoAlterado={valor => setTime(valor)}/>
          

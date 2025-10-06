@@ -1,31 +1,77 @@
-
-import './App.css';
-import { Banner } from './componentes/Banner';
-import { Form } from './componentes/Form';
-import { useState } from 'react';
-import { Time } from './componentes/Time';
+import "./App.css";
+import { Banner } from "./componentes/Banner";
+import { Form } from "./componentes/Form";
+import { useState } from "react";
+import { Time } from "./componentes/Time";
+import { Rodape } from "./componentes/Rodape";
 
 function App() {
+  const times = [
+    {
+      nome: "Programação",
+      corPrimaria: "#57C278",
+      corSecundaria: "#D9E6F5",
+    },
+    {
+      nome: "Front-End",
+      corPrimaria: "#82CFFA",
+      corSecundaria: "#E8F8FF",
+    },
+    {
+      nome: "Data Science",
+      corPrimaria: "#A6D157",
+      corSecundaria: "#F0F8E2",
+    },
+    {
+      nome: "Devops",
+      corPrimaria: "#E06B69",
+      corSecundaria: "#FDE7E8",
+    },
+    {
+      nome: "UX e Design",
+      corPrimaria: "#DB6EBF",
+      corSecundaria: "#FAE9F5",
+    },
+    {
+      nome: "Mobile",
+      corPrimaria: "#FFBA05",
+      corSecundaria: "#FFF5D9",
+    },
+    {
+      nome: "Inovação e Gestão",
+      corPrimaria: "#FF8A29",
+      corSecundaria: "#FFEEDF",
+    },
+  ];
 
-  const [colaboradores, setColaboradores] = useState('')
+  const [colaboradores, setColaboradores] = useState([]);
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador)
-    setColaboradores([...colaboradores, colaborador])
-  }
+    setColaboradores([...colaboradores, colaborador]);
+  };
 
   return (
-    <div>
+    <div className="App">
       <Banner />
-      <Form aoColaboradorCadastrado={ colaborador => setColaboradores([...colaboradores, colaborador])} />
-      <Time nome="Programação" />
-      <Time nome="Front-End" />
-      <Time nome="Data Science" />
-      <Time nome="Devops" />
-      <Time nome="UX e Design" />
-      <Time nome="Mobile" />
-      <Time nome="Inovação e Gestão" />
+      <Form
+        times={times.map(time => time.nome)}
+        aoColaboradorCadastrado={(colaborador) =>
+          aoNovoColaboradorAdicionado(colaborador)
+        }
+      />
+
+      {times.map((time) => (
+        <Time
+          key={time.nome}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time == time.nome)}
+        />
+      ))}
+
+      <Rodape/>
     </div>
-     );
+  );
 }
 
 export default App;
