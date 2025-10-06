@@ -2,7 +2,7 @@ import './style.css'
 
 export const Rodape = () =>{
   return(
-    <div className='rodape'>
+    <div className='rodape-pg'>
       <div>
         <ul className='lista-rp'>
           <li>
